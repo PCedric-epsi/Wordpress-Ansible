@@ -5,4 +5,10 @@
   - name: ping
     ping:
 
+  - name: test creation fichier
+    file:    
+      path: /home/webadmin/test
+      state: file
+      mode: '0755'
+
 ...
