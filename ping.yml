@@ -8,7 +8,7 @@
   - name: Add ondrej PHP PPA
     apt_repository:
       repo: 'ppa:ondrej/php'
-      ignore_errors: true
+    ignore_errors: true
 
   - name: Install PHP
     package: 
