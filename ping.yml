@@ -8,7 +8,7 @@
   - name: test creation fichier
     file:    
       path: /home/webadmin/test
-      state: file
+      state: touch
       mode: '0755'
 
 ...
