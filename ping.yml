@@ -21,7 +21,7 @@
       - php-xml
 
   - name: Remove apache2
-      package:
-        name: apache2
-        state: absent
+    package:
+      name: apache2
+      state: absent
 ...
