@@ -50,11 +50,6 @@
         creates: /root/.my.cnf
       register: mysql_new_root_pass
 
-    - name: Remove anonymous users
-      mysql_user:
-        name: ""
-        state: absent
-      when: mysql_new_root_pass.changed
 
     - name: Remove test database
       mysql_db:
