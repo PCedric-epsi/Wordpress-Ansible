@@ -2,6 +2,8 @@
 - name: test ping
   hosts: wordpress
   tasks:
+  - name: ping
+    ping:
 
   - name: Add ondrej PHP PPA
     apt_repository:
