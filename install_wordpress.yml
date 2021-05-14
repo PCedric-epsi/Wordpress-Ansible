@@ -1,5 +1,4 @@
 - name : Installation Wordpress
-  become: true
   hosts: wordpress
   tasks:
   # PHP
