@@ -91,10 +91,36 @@
         dest: /etc/nginx/sites-available/default
       notify: restart nginx
 
+# Wordpress
+
+    - name: Get WordPress checksum
+      uri:
+        url: https://wordpress.org/latest.zip.sha1
+        return_content: true
+      register: wp_checksum
+
+    - name: Download Wordpress
+      get_url:
+        url: https://wordpress.org/latest.zip
+        dest: /tmp/wordpress.zip
+        checksum: "sha1:{{wp_checksum.content}}"
+
+        - name: Unzip Wordpress
+      unarchive:
+        src: /tmp/wordpress.zip
+        dest: /tmp
+        remote_src: yes
+        creates: /tmp/wordpress/wp-settings.php
+
     - name: Create project folder
       file:
         path: /var/www/book.example.com
         state:  directory
+
+    - name: Copy WordPress files
+      command: cp -a /tmp/wordpress/. /var/www/book.example.com
+      args:
+        creates: /var/www/book.example.com/wp-settings.php
 
       #HANDLERS
   handlers:
