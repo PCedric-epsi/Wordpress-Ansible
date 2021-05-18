@@ -105,7 +105,7 @@
         dest: /tmp/wordpress.zip
         checksum: "sha1:{{wp_checksum.content}}"
 
-        - name: Unzip Wordpress
+    - name: Unzip Wordpress
       unarchive:
         src: /tmp/wordpress.zip
         dest: /tmp
